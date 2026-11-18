@@ -1,0 +1,65 @@
+{
+	"name": "@navikt/navno-server",
+	"version": "1.0.0",
+	"description": "Utilities for navno Hono servers",
+	"license": "MIT",
+	"repository": "navikt/navno-server",
+	"files": [
+		"dist",
+		"docs"
+	],
+	"type": "module",
+	"exports": {
+		".": {
+			"types": "./dist/index.d.mts",
+			"import": "./dist/index.mjs"
+		},
+		"./upstream": {
+			"types": "./dist/upstream.d.mts",
+			"import": "./dist/upstream.mjs"
+		}
+	},
+	"publishConfig": {
+		"registry": "https://npm.pkg.github.com"
+	},
+	"scripts": {
+		"build": "tsdown",
+		"lint": "oxfmt --check && oxlint && tsc --noEmit",
+		"format": "oxfmt",
+		"test": "node --test \"test/**/*.test.ts\""
+	},
+	"devDependencies": {
+		"@hono/node-server": "2.1.6",
+		"@itsy/corgi": "1.5.0",
+		"@navikt/navno-logger": "1.2.0",
+		"@opentelemetry/api": "1.10.0",
+		"@opentelemetry/core": "3.1.0",
+		"@prometheus-io/client": "0.16.1",
+		"@types/node": "26.6.5",
+		"hono": "4.13.17",
+		"oxfmt": "0.75.0",
+		"oxlint": "1.90.0",
+		"oxlint-tsgolint": "7.0.2005",
+		"tsdown": "0.22.14",
+		"typescript": "6.0.3"
+	},
+	"peerDependencies": {
+		"@hono/node-server": "^2.0.0",
+		"@itsy/corgi": "^1.4.0",
+		"@navikt/navno-logger": "^1.1.0",
+		"@prometheus-io/client": "^0.16.0",
+		"hono": "^4.13.0"
+	},
+	"peerDependenciesMeta": {
+		"@itsy/corgi": {
+			"optional": true
+		},
+		"@prometheus-io/client": {
+			"optional": true
+		}
+	},
+	"engines": {
+		"node": ">=24"
+	},
+	"packageManager": "pnpm@12.18.0+sha512.9d7882d5dc82147ecfc4e062aa34834e0ad0296710a1837a1115ae012127d36b7109e321ac1598a1dd0a65597681b1e99917e12ed0d749eae91187943363beb3"
+}
